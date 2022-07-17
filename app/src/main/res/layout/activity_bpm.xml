@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Temperature">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+
+        app:itemTextColor="@color/black"
+        app:menu="@menu/bottom_navigation"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="668dp" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/idGraphView"
+        android:layout_width="314dp"
+        android:layout_height="363dp"
+        android:layout_alignParentTop="true"
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="175dp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+        tools:layout_editor_absoluteX="-38dp"
+        tools:layout_editor_absoluteY="61dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewBpm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="BPM"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="35sp" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <ImageView
+                    android:id="@+id/bpm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="1dp"
+                    app:srcCompat="@drawable/ic_baseline_format_quote_24" />
+
+                <TextView
+                    android:id="@+id/bpmHZ"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:text="Hz"
+                    android:textSize="25sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <ImageView
+                    android:id="@+id/day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="1dp"
+                    app:srcCompat="@drawable/ic_baseline_today_24" />
+
+                <TextView
+                    android:id="@+id/temperatureDay"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:text="5 days"
+                    android:textSize="25sp" />
+
+            </TableRow>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
