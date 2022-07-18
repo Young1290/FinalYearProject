@@ -15,7 +15,7 @@ public class Page1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
 
-        button = (ImageView) findViewById(R.id.imageView8);
+        button = (ImageView) findViewById(R.id.imageView6);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
