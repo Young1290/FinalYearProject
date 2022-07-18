@@ -12,4 +12,19 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="two">two</string>
+    <string name="one">one</string>
+    <string name="page1">page1</string>
+    <string name="three">three</string>
+    <string name="welcome_txt">welcome_txt</string>
+    <string name="welcome_txt1">welcome_txt1</string>
+    <string name="page2">background</string>
+    <string name="background">background2</string>
+    <string name="btn1">btn1</string>
+    <string name="btn2">btn2</string>
+    <string name="btn3">btn3</string>
+    <string name="welcome_page">Seek a better pet ownership? Free your hand? Free your time? Free your mind?</string>
+    <string name="welcome_page1">TextView</string>
+    <string name="welcome_page2">Lots of latest product are waiting for you and your pet.</string>
+    <string name="welcome_page3">Hurry Up!!!</string>
 </resources>
