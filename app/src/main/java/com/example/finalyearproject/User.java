@@ -14,13 +14,13 @@ public class User {
         this.surname = surname;
         this.phoneno = phoneno;
     }
-    public String getUserName() {
+    public String getName() {
         return name;
     }
-    public String getUserSurname() {
+    public String getSurname() {
         return surname;
     }
-    public String getUserPhoneno() {
+    public String getPhoneno() {
         return phoneno;
     }
 }

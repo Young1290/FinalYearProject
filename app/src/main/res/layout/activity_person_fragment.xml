@@ -182,7 +182,7 @@
                     app:srcCompat="@drawable/ic_baseline_email_24" />
 
                 <TextView
-                    android:id="@+id/textViewEmailAdress"
+                    android:id="@+id/textViewEmailAddress"
                     android:layout_width="377dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"

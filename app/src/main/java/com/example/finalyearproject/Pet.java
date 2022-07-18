@@ -2,7 +2,7 @@ package com.example.finalyearproject;
 
 public class Pet {
 
-    public String petname;
+    public String name;
     public String age;
     public String weight;
 //    public Integer temp;
@@ -11,8 +11,8 @@ public class Pet {
     public Pet(){
     }
 
-    public Pet(String petname, String age, String weight){
-        this.petname = petname;
+    public Pet(String name, String age, String weight){
+        this.name = name;
         this.age = age;
         this.weight = weight;
     }
@@ -21,13 +21,13 @@ public class Pet {
 //        this.temp = temp;
 //        this.bpm = bpm;
 //    }
-    public String getUserName() {
-        return petname;
+    public String getName() {
+        return name;
     }
-    public String getUserAge() {
+    public String getAge() {
         return age;
     }
-    public String getUserWeight() {
+    public String getWeight() {
         return weight;
     }
 //    public Integer getPetTemp() {

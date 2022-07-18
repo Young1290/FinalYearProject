@@ -96,12 +96,12 @@ public class EditPetActivity extends AppCompatActivity implements View.OnClickLi
         });
     }
     private void userInformation(){
-        String petname = editTextName.getText().toString().trim();
+        String name = editTextName.getText().toString().trim();
         String age = editTextAge.getText().toString().trim();
         String weight = editTextWeight.getText().toString().trim();
-        Pet pet = new Pet(petname,age,weight);
+        Pet pet = new Pet(name,age,weight);
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        databaseReference.child(user.getUid()).child("userName").setValue(pet);
+        databaseReference.child(user.getUid()).child("pet").setValue(pet);
         Toast.makeText(getApplicationContext(),"Pet information updated",Toast.LENGTH_LONG).show();
     }
     @Override

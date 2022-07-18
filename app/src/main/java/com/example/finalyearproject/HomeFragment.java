@@ -51,8 +51,7 @@ public class HomeFragment extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("userName");
-        DatabaseReference databaseReference2 = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("pet");
         StorageReference storageReference = firebaseStorage.getReference();
         // Get the image stored on Firebase via "User id/Images/Profile Pic.jpg".
         storageReference.child(firebaseAuth.getUid()).child("Images").child("Pet_Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -73,9 +72,9 @@ public class HomeFragment extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Pet petProfile = dataSnapshot.getValue(Pet.class);
-                profileNameTextView.setText(petProfile.getUserName());
-                profileAgeTextView.setText(petProfile.getUserAge());
-                profileWeightTextView.setText(petProfile.getUserWeight());
+                profileNameTextView.setText(petProfile.getName());
+                profileAgeTextView.setText(petProfile.getAge());
+                profileWeightTextView.setText(petProfile.getWeight());
             }
 
             @Override
@@ -128,12 +127,9 @@ public class HomeFragment extends AppCompatActivity {
         alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String petname = etUsername.getText().toString();
-                String age = profileAgeTextView.getText().toString();
-                String weight = profileWeightTextView.getText().toString();
-                Pet pet = new Pet(petname, age, weight);
+                String name = etUsername.getText().toString();
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).child("userName").setValue(pet);
+                databaseReference.child(user.getUid()).child("pet").child("name").setValue(name);
                 etUsername.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });
@@ -160,12 +156,9 @@ public class HomeFragment extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                String petname = profileNameTextView.getText().toString();
                 String age = etUserAge.getText().toString();
-                String weight = profileWeightTextView.getText().toString();
-                Pet pet = new Pet(petname, age, weight);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(pet);
+                databaseReference.child(user.getUid()).child("pet").child("age").setValue(age);
                 etUserAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });
@@ -191,12 +184,9 @@ public class HomeFragment extends AppCompatActivity {
         alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String petname = profileNameTextView.getText().toString();
-                String age = profileAgeTextView.getText().toString();
                 String weight = etUserWeight.getText().toString();
-                Pet pet = new Pet(petname, age, weight);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(pet);
+                databaseReference.child(user.getUid()).child("pet").child("weight").setValue(weight);
                 etUserWeight.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });

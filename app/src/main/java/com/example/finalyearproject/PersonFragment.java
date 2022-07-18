@@ -74,10 +74,10 @@ public class PersonFragment extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User userProfile = dataSnapshot.getValue(User.class);
-                profileNameTextView.setText(userProfile.getUserName());
-                profileSurnameTextView.setText(userProfile.getUserSurname());
-                profilePhonenoTextView.setText(userProfile.getUserPhoneno());
-                textViewemailname = (TextView) findViewById(R.id.textViewEmailAdress);
+                profileNameTextView.setText(userProfile.getName());
+                profileSurnameTextView.setText(userProfile.getSurname());
+                profilePhonenoTextView.setText(userProfile.getPhoneno());
+                textViewemailname = (TextView) findViewById(R.id.textViewEmailAddress);
                 textViewemailname.setText(user.getEmail());
             }
 
@@ -132,11 +132,8 @@ public class PersonFragment extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String name = etUsername.getText().toString();
-                String surname = profileSurnameTextView.getText().toString();
-                String phoneno = profilePhonenoTextView.getText().toString();
-                User userinformation = new User(name, surname, phoneno);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(userinformation);
+                databaseReference.child(user.getUid()).child("name").setValue(name);
                 etUsername.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });
@@ -163,12 +160,9 @@ public class PersonFragment extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                String name = profileNameTextView.getText().toString();
                 String surname = etUserSurname.getText().toString();
-                String phoneno = profilePhonenoTextView.getText().toString();
-                User userinformation = new User(name, surname, phoneno);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(userinformation);
+                databaseReference.child(user.getUid()).child("surname").setValue(surname);
                 etUserSurname.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });
@@ -194,12 +188,9 @@ public class PersonFragment extends AppCompatActivity {
         alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String name = profileNameTextView.getText().toString();
-                String surname = profileSurnameTextView.getText().toString();
                 String phoneno = etUserPhoneno.getText().toString();
-                User userinformation = new User(name, surname, phoneno);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(userinformation);
+                databaseReference.child(user.getUid()).child("phoneno").setValue(phoneno);
                 etUserPhoneno.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });

@@ -77,13 +77,13 @@
         android:ems="10"
         android:hint="Phone_No"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/textViewEmailAdress"
+        app:layout_constraintBottom_toTopOf="@+id/textViewEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textViewEmailAdress"
+        android:id="@+id/textViewEmailAddress"
         android:layout_width="349dp"
         android:layout_height="55dp"
         android:layout_marginBottom="188dp"
@@ -106,7 +106,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEmailAdress"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmailAddress"
         app:layout_constraintVertical_bias="0.316" />
 
     <TextView

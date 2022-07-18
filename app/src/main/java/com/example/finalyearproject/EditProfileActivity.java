@@ -80,10 +80,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         editTextName = (EditText)findViewById(R.id.EditTextName);
         editTextSurname = (EditText)findViewById(R.id.EditTextSurname);
         editTextPhoneNo = (EditText)findViewById(R.id.EditTextPhoneNo);
-        btnsave=(Button)findViewById(R.id.btnSavePetButton);
+        btnsave=(Button)findViewById(R.id.btnSaveButton);
         FirebaseUser user=firebaseAuth.getCurrentUser();
         btnsave.setOnClickListener(this);
-        textViewemailname=(TextView)findViewById(R.id.textViewEmailAdress);
+        textViewemailname=(TextView)findViewById(R.id.textViewEmailAddress);
         textViewemailname.setText(user.getEmail());
         profileImageView = findViewById(R.id.update_imageView);
         firebaseStorage = FirebaseStorage.getInstance();
