@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/rounded_fg.xml" value="0.1195" />
         <entry key="app/src/main/res/layout/activity_bpm.xml" value="0.10059661865234382" />
-        <entry key="app/src/main/res/layout/activity_edit_pet.xml" value="0.22591094970703124" />
+        <entry key="app/src/main/res/layout/activity_edit_pet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.19015045166015626" />
         <entry key="app/src/main/res/layout/activity_explore_fragment.xml" value="0.109375" />
         <entry key="app/src/main/res/layout/activity_home_fragment.xml" value="0.18941826641878343" />

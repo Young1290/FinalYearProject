@@ -18,7 +18,7 @@
             app:toolbarId="@+id/toolbar">
 
             <ImageView
-                android:id="@+id/profile_pic_imageView"
+                android:id="@+id/petprofile_pic_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="182dp"
                 android:foreground="@drawable/rounded_fg"
@@ -64,7 +64,7 @@
                 android:weightSum="2">
 
                 <ImageView
-                    android:id="@+id/imageViewName"
+                    android:id="@+id/imageViewPetName"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
@@ -74,7 +74,7 @@
                     app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
                 <TextView
-                    android:id="@+id/profile_name_textView"
+                    android:id="@+id/profile_petname_textView"
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
@@ -83,13 +83,13 @@
                     android:textSize="25sp" />
 
                 <Button
-                    android:id="@+id/buttonEditName"
+                    android:id="@+id/buttonEditPetName"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:layout_toRightOf="@+id/profile_name_textView"
+                    android:layout_toRightOf="@+id/profile_petname_textView"
                     android:drawableRight="@drawable/ic_baseline_create_24"
                     android:onClick="buttonClickedEditName" />
             </TableRow>
@@ -125,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:layout_toRightOf="@+id/profile_name_textView"
+                    android:layout_toRightOf="@+id/profile_petname_textView"
                     android:drawableRight="@drawable/ic_baseline_create_24"
                     android:onClick="buttonClickedEditSurname" />
             </TableRow>
@@ -161,7 +161,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:layout_toRightOf="@+id/profile_name_textView"
+                    android:layout_toRightOf="@+id/profile_petname_textView"
                     android:drawableRight="@drawable/ic_baseline_dialpad_24"
                     android:onClick="buttonClickedEditPhoneNo" />
             </TableRow>

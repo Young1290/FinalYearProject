@@ -46,8 +46,8 @@ public class PersonFragment extends AppCompatActivity {
         setContentView(R.layout.activity_person_fragment);
         databaseReference = FirebaseDatabase.getInstance().getReference();
         editTextName = (EditText) findViewById(R.id.et_username);
-        profilePicImageView = findViewById(R.id.profile_pic_imageView);
-        profileNameTextView = findViewById(R.id.profile_name_textView);
+        profilePicImageView = findViewById(R.id.petprofile_pic_imageView);
+        profileNameTextView = findViewById(R.id.profile_petname_textView);
         profileSurnameTextView = findViewById(R.id.profile_surname_textView);
         profilePhonenoTextView = findViewById(R.id.profile_phoneno_textView);
         firebaseAuth = FirebaseAuth.getInstance();

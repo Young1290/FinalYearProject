@@ -24,13 +24,24 @@
             android:name=".Temperature"
             android:exported="false" />
         <activity
-            android:name=".ExploreFragment"
-            android:exported="false" />
-        <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditPetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Bpm"
+            android:exported="false" />
+
+        <activity
+            android:name=".HomeFragment"
+            android:exported="false" />
+
+        <activity
+            android:name=".TrackFragment"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.

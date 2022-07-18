@@ -43,16 +43,16 @@ public class HomeFragment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_fragment);
-        databaseReference = FirebaseDatabase.getInstance().getReference();
         editTextName = (EditText) findViewById(R.id.et_username);
-        profilePicImageView = findViewById(R.id.profile_pic_imageView);
-        profileNameTextView = findViewById(R.id.profile_name_textView);
+        profilePicImageView = findViewById(R.id.petprofile_pic_imageView);
+        profileNameTextView = findViewById(R.id.profile_petname_textView);
         profileAgeTextView = findViewById(R.id.profile_age_textView);
         profileWeightTextView = findViewById(R.id.profile_weight_textView);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("userName");
+        DatabaseReference databaseReference2 = firebaseDatabase.getReference(firebaseAuth.getUid());
         StorageReference storageReference = firebaseStorage.getReference();
         // Get the image stored on Firebase via "User id/Images/Profile Pic.jpg".
         storageReference.child(firebaseAuth.getUid()).child("Images").child("Pet_Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -128,12 +128,12 @@ public class HomeFragment extends AppCompatActivity {
         alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String name = etUsername.getText().toString();
+                String petname = etUsername.getText().toString();
                 String age = profileAgeTextView.getText().toString();
                 String weight = profileWeightTextView.getText().toString();
-                Pet pet = new Pet(name, age, weight);
+                Pet pet = new Pet(petname, age, weight);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(pet);
+                databaseReference.child(user.getUid()).child("userName").setValue(pet);
                 etUsername.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });
@@ -160,10 +160,10 @@ public class HomeFragment extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                String name = profileNameTextView.getText().toString();
+                String petname = profileNameTextView.getText().toString();
                 String age = etUserAge.getText().toString();
                 String weight = profileWeightTextView.getText().toString();
-                Pet pet = new Pet(name, age, weight);
+                Pet pet = new Pet(petname, age, weight);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 databaseReference.child(user.getUid()).setValue(pet);
                 etUserAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
@@ -191,10 +191,10 @@ public class HomeFragment extends AppCompatActivity {
         alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String name = profileNameTextView.getText().toString();
+                String petname = profileNameTextView.getText().toString();
                 String age = profileAgeTextView.getText().toString();
                 String weight = etUserWeight.getText().toString();
-                Pet pet = new Pet(name, age, weight);
+                Pet pet = new Pet(petname, age, weight);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 databaseReference.child(user.getUid()).setValue(pet);
                 etUserWeight.onEditorAction(EditorInfo.IME_ACTION_DONE);

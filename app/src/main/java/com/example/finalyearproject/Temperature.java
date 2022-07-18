@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,14 +25,14 @@ public class Temperature extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperature);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Temperature");
-//        Integer value1 = databaseReference.child(user).get();
+
 
 
         graphView = findViewById(R.id.idGraphView);
@@ -67,33 +68,6 @@ public class Temperature extends AppCompatActivity {
         staticLabelsFormatter.setVerticalLabels(new String[] {"28", "29", "30", "31", "32"});
         graphView.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        // Set Home selected
-        bottomNavigationView.setSelectedItemId(R.id.nav_person);
-
-        // Perform item selected listener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()) {
-                    case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), HomeFragment.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.nav_track:
-                        startActivity(new Intent(getApplicationContext(), HomeFragment.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.nav_person:
-                        startActivity(new Intent(getApplicationContext(), PersonFragment.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
-            }
-        });
     }
 
 }

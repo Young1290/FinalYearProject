@@ -63,7 +63,7 @@ public class Login extends AppCompatActivity {
                                         Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(Login.this, PersonFragment.class);
+                                    Intent intent = new Intent(Login.this, HomeFragment.class);
                                     startActivity(intent);
                                     finish();
                                 }

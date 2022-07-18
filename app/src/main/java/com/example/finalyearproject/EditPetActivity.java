@@ -75,13 +75,13 @@ public class EditPetActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(new Intent(getApplicationContext(),Login.class));
         }
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        editTextName = (EditText)findViewById(R.id.EditTextName);
+        editTextName = (EditText)findViewById(R.id.EditTextPetName);
         editTextAge = (EditText)findViewById(R.id.EditTextAge);
         editTextWeight = (EditText)findViewById(R.id.EditTextWeight);
-        btnsave=(Button)findViewById(R.id.btnSaveButton);
-        FirebaseUser user=firebaseAuth.getCurrentUser();
+        btnsave=(Button)findViewById(R.id.btnSavePetButton);
+//        FirebaseUser user=firebaseAuth.getCurrentUser();
         btnsave.setOnClickListener(this);
-        profileImageView = findViewById(R.id.update_imageView);
+        profileImageView = findViewById(R.id.update_petimageView);
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
 
@@ -96,12 +96,12 @@ public class EditPetActivity extends AppCompatActivity implements View.OnClickLi
         });
     }
     private void userInformation(){
-        String name = editTextName.getText().toString().trim();
+        String petname = editTextName.getText().toString().trim();
         String age = editTextAge.getText().toString().trim();
         String weight = editTextWeight.getText().toString().trim();
-        Pet pet = new Pet(name,age,weight);
+        Pet pet = new Pet(petname,age,weight);
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        databaseReference.child(user.getUid()).setValue(pet);
+        databaseReference.child(user.getUid()).child("userName").setValue(pet);
         Toast.makeText(getApplicationContext(),"Pet information updated",Toast.LENGTH_LONG).show();
     }
     @Override
@@ -148,14 +148,14 @@ public class EditPetActivity extends AppCompatActivity implements View.OnClickLi
     public void openSelectProfilePictureDialog() {
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         TextView title = new TextView(this);
-        title.setText("Profile Picture");
+        title.setText("Pet Picture");
         title.setPadding(10, 10, 10, 10);   // Set Position
         title.setGravity(Gravity.CENTER);
         title.setTextColor(Color.BLACK);
         title.setTextSize(20);
         alertDialog.setCustomTitle(title);
         TextView msg = new TextView(this);
-        msg.setText("Please select a profile picture \n Tap the sample avatar logo");
+        msg.setText("Please select a pet picture \n Tap the sample avatar logo");
         msg.setGravity(Gravity.CENTER_HORIZONTAL);
         msg.setTextColor(Color.BLACK);
         alertDialog.setView(msg);

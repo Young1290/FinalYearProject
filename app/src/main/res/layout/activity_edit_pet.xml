@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfileActivity">
+    tools:context=".EditPetActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -21,7 +21,7 @@
             app:toolbarId="@+id/toolbar">
 
             <ImageView
-                android:id="@+id/update_imageView"
+                android:id="@+id/update_petimageView"
                 android:layout_width="match_parent"
                 android:layout_height="182dp"
                 android:foreground="@drawable/rounded_fg"
@@ -51,7 +51,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textViewProfile"
+                android:id="@+id/textViewPetProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -59,13 +59,13 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
-                android:id="@+id/TextViewName"
+                android:id="@+id/TextViewPetName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="name" />
 
             <EditText
-                android:id="@+id/EditTextName"
+                android:id="@+id/EditTextPetName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -90,7 +90,7 @@
                 android:id="@+id/TextViewWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="phone_number" />
+                android:text="weight" />
 
             <EditText
                 android:id="@+id/EditTextWeight"
@@ -102,7 +102,7 @@
 
 
             <Button
-                android:id="@+id/btnSaveButton"
+                android:id="@+id/btnSavePetButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

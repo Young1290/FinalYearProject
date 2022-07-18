@@ -74,13 +74,13 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() == null){
             finish();
-            startActivity(new Intent(getApplicationContext(),Login.class));
+            startActivity(new Intent(getApplicationContext(),EditPetActivity.class));
         }
         databaseReference = FirebaseDatabase.getInstance().getReference();
         editTextName = (EditText)findViewById(R.id.EditTextName);
         editTextSurname = (EditText)findViewById(R.id.EditTextSurname);
         editTextPhoneNo = (EditText)findViewById(R.id.EditTextPhoneNo);
-        btnsave=(Button)findViewById(R.id.btnSaveButton);
+        btnsave=(Button)findViewById(R.id.btnSavePetButton);
         FirebaseUser user=firebaseAuth.getCurrentUser();
         btnsave.setOnClickListener(this);
         textViewemailname=(TextView)findViewById(R.id.textViewEmailAdress);
