@@ -36,7 +36,7 @@ public class Page3 extends AppCompatActivity {
     }
 
     public void openActivity2() {
-        Intent intent = new Intent(this, HomeFragment.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 

@@ -7,12 +7,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -63,7 +60,6 @@ public class Register extends AppCompatActivity {
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    generateUser(email, password);
                                     if (task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(),
                                                         "Registration successful!",
@@ -72,7 +68,7 @@ public class Register extends AppCompatActivity {
 
                                         // if the user created intent to login activity
                                         Intent intent = new Intent(Register.this,
-                                                MainActivity.class);
+                                                EditProfileActivity.class);
                                         startActivity(intent);
                                     }
                                     else {
@@ -86,12 +82,6 @@ public class Register extends AppCompatActivity {
                                     }
                                 }
 
-                                private void generateUser(String email, String password) {
-                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                    DatabaseReference users = database.getReference("users"); //users is a node in your Firebase Database.
-                                    users.push().setValue(email);
-                                    users.push().setValue(password);
-                                }
                             });
 
                     }

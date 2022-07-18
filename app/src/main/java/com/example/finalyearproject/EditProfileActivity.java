@@ -117,15 +117,15 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.defavatar);
                 // openSelectProfilePictureDialog();
                 userInformation();
-                // sendUserData();
+                sendUserData();
                 finish();
-                startActivity(new Intent(EditProfileActivity.this, HomeFragment.class));
+                startActivity(new Intent(EditProfileActivity.this, PersonFragment.class));
             }
             else {
                 userInformation();
                 sendUserData();
                 finish();
-                startActivity(new Intent(EditProfileActivity.this, HomeFragment.class));
+                startActivity(new Intent(EditProfileActivity.this, PersonFragment.class));
             }
         }
     }
@@ -134,7 +134,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         // Get "User UID" from Firebase > Authentification > Users.
         DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
-        StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Pic"); //User id/Images/Profile Pic.jpg
+        StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile_Pic"); //User id/Images/Profile Pic.jpg
         UploadTask uploadTask = imageReference.putFile(imagePath);
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override

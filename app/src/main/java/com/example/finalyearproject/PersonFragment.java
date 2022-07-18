@@ -56,7 +56,7 @@ public class PersonFragment extends AppCompatActivity {
         DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
         StorageReference storageReference = firebaseStorage.getReference();
         // Get the image stored on Firebase via "User id/Images/Profile Pic.jpg".
-        storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile_Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 // Using "Picasso" (http://square.github.io/picasso/) after adding the dependency in the Gradle.
@@ -212,7 +212,7 @@ public class PersonFragment extends AppCompatActivity {
 
     public void navigateLogOut(View v) {
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Page1.class);
         startActivity(intent);
     }
 }
