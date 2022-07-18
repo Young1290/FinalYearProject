@@ -27,7 +27,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -36,23 +35,22 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
-public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener{
+public class EditPetActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private static final String TAG = EditProfileActivity.class.getSimpleName();
+    private static final String TAG = EditPetActivity.class.getSimpleName();
     Button btnsave;
     private FirebaseAuth firebaseAuth;
-    private TextView textViewemailname;
     private DatabaseReference databaseReference;
     private EditText editTextName;
-    private EditText editTextSurname;
-    private EditText editTextPhoneNo;
+    private EditText editTextAge;
+    private EditText editTextWeight;
     private ImageView profileImageView;
     private FirebaseStorage firebaseStorage;
     private static int PICK_IMAGE = 123;
     Uri imagePath;
     private StorageReference storageReference;
 
-    public EditProfileActivity() {
+    public EditPetActivity() {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -70,7 +68,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profile);
+        setContentView(R.layout.activity_edit_pet);
         firebaseAuth=FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() == null){
             finish();
@@ -78,13 +76,11 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         }
         databaseReference = FirebaseDatabase.getInstance().getReference();
         editTextName = (EditText)findViewById(R.id.EditTextName);
-        editTextSurname = (EditText)findViewById(R.id.EditTextSurname);
-        editTextPhoneNo = (EditText)findViewById(R.id.EditTextPhoneNo);
+        editTextAge = (EditText)findViewById(R.id.EditTextAge);
+        editTextWeight = (EditText)findViewById(R.id.EditTextWeight);
         btnsave=(Button)findViewById(R.id.btnSaveButton);
         FirebaseUser user=firebaseAuth.getCurrentUser();
         btnsave.setOnClickListener(this);
-        textViewemailname=(TextView)findViewById(R.id.textViewEmailAdress);
-        textViewemailname.setText(user.getEmail());
         profileImageView = findViewById(R.id.update_imageView);
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
@@ -101,12 +97,12 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     }
     private void userInformation(){
         String name = editTextName.getText().toString().trim();
-        String surname = editTextSurname.getText().toString().trim();
-        String phoneno = editTextPhoneNo.getText().toString().trim();
-        User userinformation = new User(name,surname,phoneno);
+        String age = editTextAge.getText().toString().trim();
+        String weight = editTextWeight.getText().toString().trim();
+        Pet pet = new Pet(name,age,weight);
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        databaseReference.child(user.getUid()).setValue(userinformation);
-        Toast.makeText(getApplicationContext(),"User information updated",Toast.LENGTH_LONG).show();
+        databaseReference.child(user.getUid()).setValue(pet);
+        Toast.makeText(getApplicationContext(),"Pet information updated",Toast.LENGTH_LONG).show();
     }
     @Override
     public void onClick(View view) {
@@ -119,13 +115,13 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 userInformation();
                 sendUserData();
                 finish();
-                startActivity(new Intent(EditProfileActivity.this, EditPetActivity.class));
+                startActivity(new Intent(EditPetActivity.this, HomeFragment.class));
             }
             else {
                 userInformation();
                 sendUserData();
                 finish();
-                startActivity(new Intent(EditProfileActivity.this, EditPetActivity.class));
+                startActivity(new Intent(EditPetActivity.this, HomeFragment.class));
             }
         }
     }
@@ -134,17 +130,17 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         // Get "User UID" from Firebase > Authentification > Users.
         DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
-        StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile_Pic"); //User id/Images/Profile Pic.jpg
+        StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Pet_Pic"); //User id/Images/Profile Pic.jpg
         UploadTask uploadTask = imageReference.putFile(imagePath);
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(EditProfileActivity.this, "Error: Uploading profile picture", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditPetActivity.this, "Error: Uploading pet picture", Toast.LENGTH_SHORT).show();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(EditProfileActivity.this, "Profile picture uploaded", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditPetActivity.this, "Pet picture uploaded", Toast.LENGTH_SHORT).show();
             }
         });
     }

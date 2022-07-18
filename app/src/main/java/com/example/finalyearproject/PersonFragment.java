@@ -137,7 +137,6 @@ public class PersonFragment extends AppCompatActivity {
                 User userinformation = new User(name, surname, phoneno);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 databaseReference.child(user.getUid()).setValue(userinformation);
-                databaseReference.child(user.getUid()).setValue(userinformation);
                 etUsername.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });
@@ -170,7 +169,6 @@ public class PersonFragment extends AppCompatActivity {
                 User userinformation = new User(name, surname, phoneno);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 databaseReference.child(user.getUid()).setValue(userinformation);
-                databaseReference.child(user.getUid()).setValue(userinformation);
                 etUserSurname.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });
@@ -201,7 +199,6 @@ public class PersonFragment extends AppCompatActivity {
                 String phoneno = etUserPhoneno.getText().toString();
                 User userinformation = new User(name, surname, phoneno);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(userinformation);
                 databaseReference.child(user.getUid()).setValue(userinformation);
                 etUserPhoneno.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }

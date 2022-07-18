@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,11 +20,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -56,8 +55,7 @@ public class HomeFragment extends AppCompatActivity {
         DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
         StorageReference storageReference = firebaseStorage.getReference();
         // Get the image stored on Firebase via "User id/Images/Profile Pic.jpg".
-
-        storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        storageReference.child(firebaseAuth.getUid()).child("Images").child("Pet_Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 // Using "Picasso" (http://square.github.io/picasso/) after adding the dependency in the Gradle.
@@ -68,16 +66,16 @@ public class HomeFragment extends AppCompatActivity {
         });
         if (firebaseAuth.getCurrentUser() == null) {
             finish();
-            startActivity(new Intent(getApplicationContext(), Login.class));
+            startActivity(new Intent(getApplicationContext(), Register.class));
         }
         final FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Pet pet = dataSnapshot.getValue(Pet.class);
-                profileNameTextView.setText(pet.getUserName());
-                profileAgeTextView.setText(pet.getUserAge());
-                profileWeightTextView.setText(pet.getUserWeight());
+                Pet petProfile = dataSnapshot.getValue(Pet.class);
+                profileNameTextView.setText(petProfile.getUserName());
+                profileAgeTextView.setText(petProfile.getUserAge());
+                profileWeightTextView.setText(petProfile.getUserWeight());
             }
 
             @Override
@@ -110,8 +108,6 @@ public class HomeFragment extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
 
     public void buttonClickedEditName(View view) {
@@ -137,7 +133,6 @@ public class HomeFragment extends AppCompatActivity {
                 String weight = profileWeightTextView.getText().toString();
                 Pet pet = new Pet(name, age, weight);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(pet);
                 databaseReference.child(user.getUid()).setValue(pet);
                 etUsername.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
@@ -167,10 +162,9 @@ public class HomeFragment extends AppCompatActivity {
 
                 String name = profileNameTextView.getText().toString();
                 String age = etUserAge.getText().toString();
-                String weight = profileAgeTextView.getText().toString();
+                String weight = profileWeightTextView.getText().toString();
                 Pet pet = new Pet(name, age, weight);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                databaseReference.child(user.getUid()).setValue(pet);
                 databaseReference.child(user.getUid()).setValue(pet);
                 etUserAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
@@ -203,7 +197,6 @@ public class HomeFragment extends AppCompatActivity {
                 Pet pet = new Pet(name, age, weight);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 databaseReference.child(user.getUid()).setValue(pet);
-                databaseReference.child(user.getUid()).setValue(pet);
                 etUserWeight.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });
@@ -220,5 +213,4 @@ public class HomeFragment extends AppCompatActivity {
         Intent intent = new Intent(this, Bpm.class);
         startActivity(intent);
     }
-
 }

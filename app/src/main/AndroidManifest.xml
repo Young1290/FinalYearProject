@@ -51,10 +51,6 @@
             android:name=".PersonFragment"
             android:exported="false" />
         <activity
-            android:name=".HomeFragment"
-            android:exported="false"
-            tools:ignore="Instantiatable" />
-        <activity
             android:name=".Register"
             android:exported="false" />
         <activity
