@@ -1,50 +1,105 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView2"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="1">
-        <TextView
-            android:id="@+id/sign_up_TextView"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="sign_up"
-            android:clickable="true"
-            android:gravity="center"
-            style="?android:attr/listSeparatorTextViewStyle"/>
-        <EditText
-            android:id="@+id/SignUpMail"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="mail_address"
-            android:inputType="textEmailAddress"/>
-        <EditText
-            android:id="@+id/SignUpPass"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="password"
-            android:inputType="textPassword"/>
-        <Button
-            android:id="@+id/SignUpButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ok" />
-        <TextView
-            android:id="@+id/AlreadyMember"
-            android:textSize="15sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="already_a_member"
-            android:onClick="navigate_sign_in"
-            android:clickable="true"
-            android:gravity="center"/>
-    </TableLayout>
-</ScrollView>
+
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="900dp"
+        android:layout_height="1000dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.867"
+        app:srcCompat="@drawable/cat1" />
+
+    <TextView
+        android:id="@+id/sign_up_TextView"
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="385dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:text="SIGN UP"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/SignUpMail"
+        android:layout_width="385dp"
+        android:layout_height="95dp"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:hint="E-Mail"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.204" />
+
+    <EditText
+        android:id="@+id/SignUpPass"
+        android:layout_width="386dp"
+        android:layout_height="89dp"
+        android:drawableLeft="@drawable/ic_baseline_dialpad_24"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColor="#F4F3F3"
+        android:textColorHint="#ECE2E2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.338" />
+
+    <Button
+        android:id="@+id/SignUpButton"
+        android:layout_width="288dp"
+        android:layout_height="57dp"
+        android:text="ok"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.478" />
+
+    <TextView
+        android:id="@+id/AlreadyMember"
+        android:layout_width="430dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="350dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="navigate_sign_in"
+        android:text="Already have an account"
+        android:textColor="#FBFBFB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
