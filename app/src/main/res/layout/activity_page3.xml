@@ -49,7 +49,7 @@
         android:id="@+id/imageView12"
         android:layout_width="62dp"
         android:layout_height="59dp"
-        android:layout_marginTop="835dp"
+        android:layout_marginTop="728dp"
         android:layout_marginEnd="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
@@ -57,25 +57,27 @@
         app:srcCompat="@drawable/number_3" />
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="64dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="100dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/number_one"
-        tools:layout_editor_absoluteY="570dp" />
-
-    <ImageView
         android:id="@+id/imageView11"
         android:layout_width="62dp"
         android:layout_height="59dp"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="728dp"
         android:layout_marginEnd="5dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView12"
         app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:srcCompat="@drawable/number_two"
-        tools:layout_editor_absoluteY="568dp" />
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        app:srcCompat="@drawable/number_two" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="61dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="728dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        app:srcCompat="@drawable/number_one" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -101,13 +103,18 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="640dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.986" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="368dp"
         android:layout_height="55dp"
+        android:layout_marginTop="880dp"
         android:fontFamily="sans-serif-medium"
         android:text="Join us to experience more meaningful pet ownership"
         android:textAlignment="center"
@@ -115,18 +122,27 @@
         android:textColor="#020202"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="672dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1015dp"
+        android:layout_marginBottom="30dp"
         android:fontFamily="sans-serif-medium"
         android:text="Already have an account?"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="812dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/login"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

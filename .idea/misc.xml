@@ -3,10 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_edit_profile.xml" value="0.22" />
         <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_login.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_page1.xml" value="0.13994565217391305" />
-        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_page2.xml" value="0.13994565217391305" />
-        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_page3.xml" value="0.13994565217391305" />
+        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_page1.xml" value="0.19725557461406518" />
+        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_page2.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_page3.xml" value="0.22" />
+        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_reset_password.xml" value="0.22" />
+        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/activity_track_fragment.xml" value="0.13994565217391305" />
+        <entry key="..\:/Users/jessi/FinalYearProject/app/src/main/res/layout/layout_custom_dialog_edit_age.xml" value="0.13994565217391305" />
         <entry key="app/src/main/res/drawable/rounded_fg.xml" value="0.1195" />
         <entry key="app/src/main/res/layout/activity_bpm.xml" value="0.10059661865234382" />
         <entry key="app/src/main/res/layout/activity_edit_pet.xml" value="0.22591094970703124" />
