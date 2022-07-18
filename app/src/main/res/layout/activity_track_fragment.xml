@@ -50,11 +50,27 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/ViewPet"
+                android:id="@+id/Map"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="Track"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="35sp" />
+            <TextView
+                android:id="@+id/Latitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="latitude"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="35sp" />
+            <TextView
+                android:id="@+id/Longtitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="longitude"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="35sp" />
 

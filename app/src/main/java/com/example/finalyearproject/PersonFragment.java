@@ -102,7 +102,7 @@ public class PersonFragment extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.nav_track:
-                        startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+                        startActivity(new Intent(getApplicationContext(), TrackFragment.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.nav_person:

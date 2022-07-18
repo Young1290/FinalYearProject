@@ -33,20 +33,23 @@ import com.squareup.picasso.Picasso;
 public class TrackFragment extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
+    private TextView latitude, longitude;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private ImageView trackPicImageView;
     private FirebaseStorage firebaseStorage;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_fragment);
-        databaseReference = FirebaseDatabase.getInstance().getReference();
         trackPicImageView = findViewById(R.id.track_pic_imageView);
+        latitude = findViewById(R.id.Latitude);
+        longitude = findViewById(R.id.Longtitude);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("pet").child("track");
         StorageReference storageReference = firebaseStorage.getReference();
         // Get the image stored on Firebase via "User id/Images/Profile Pic.jpg".
         storageReference.child(firebaseAuth.getUid()).child("Images").child("Track_Pic.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -62,10 +65,24 @@ public class TrackFragment extends AppCompatActivity {
             finish();
             startActivity(new Intent(getApplicationContext(), Register.class));
         }
+        final FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Track trackDetails = dataSnapshot.getValue(Track.class);
+                longitude.setText(trackDetails.getLongitude().toString());
+                latitude.setText(trackDetails.getLatitude().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(TrackFragment.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // Set Home selected
-        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        bottomNavigationView.setSelectedItemId(R.id.nav_track);
 
         // Perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -74,10 +91,10 @@ public class TrackFragment extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.nav_home:
+                        startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.nav_track:
-                        startActivity(new Intent(getApplicationContext(), TrackFragment.class));
-                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.nav_person:
                         startActivity(new Intent(getApplicationContext(), PersonFragment.class));
