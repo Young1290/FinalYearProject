@@ -80,8 +80,15 @@ public class Temperature extends AppCompatActivity {
                 // on below line we are adding
                 // data series to our graph view.
                 graphView.addSeries(series);
+                graphView.getViewport().setMinX(0);
+                graphView.getViewport().setMaxX(6);
+                graphView.getViewport().setMinY(29);
+                graphView.getViewport().setMaxY(33);
+
+                graphView.getViewport().setYAxisBoundsManual(true);
+                graphView.getViewport().setXAxisBoundsManual(true);
                 StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graphView);
-                staticLabelsFormatter.setHorizontalLabels(new String[] {"0", "1", "2", "3", "4", "5","6"});
+                staticLabelsFormatter.setHorizontalLabels(new String[] {"0", "1", "2", "3", "4", "5"});
                 staticLabelsFormatter.setVerticalLabels(new String[] {"29", "30", "31", "32", "33"});
                 graphView.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 

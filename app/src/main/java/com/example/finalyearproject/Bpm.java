@@ -74,8 +74,15 @@ public class Bpm extends AppCompatActivity {
                 // on below line we are adding
                 // data series to our graph view.
                 graphView.addSeries(series);
+                graphView.getViewport().setMinX(0);
+                graphView.getViewport().setMaxX(6);
+                graphView.getViewport().setMinY(80);
+                graphView.getViewport().setMaxY(120);
+
+                graphView.getViewport().setYAxisBoundsManual(true);
+                graphView.getViewport().setXAxisBoundsManual(true);
                 StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graphView);
-                staticLabelsFormatter.setHorizontalLabels(new String[] {"0", "1", "2", "3", "4", "5","6"});
+                staticLabelsFormatter.setHorizontalLabels(new String[] {"0", "1", "2", "3", "4", "5"});
                 staticLabelsFormatter.setVerticalLabels(new String[] {"80", "90", "100", "110", "120"});
                 graphView.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 
