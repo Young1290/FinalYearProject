@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,52 +24,101 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 public class Temperature extends AppCompatActivity {
 
-    GraphView graphView;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
-
+    private GraphView graphView;
+    private FirebaseDatabase firebaseDatabase;
+    private FirebaseAuth firebaseAuth;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperature);
-
+        firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Temperature");
-
-
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid()).child("pet").child("condition").
+                child("temp");
 
         graphView = findViewById(R.id.idGraphView);
 
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+        if (firebaseAuth.getCurrentUser() == null) {
+            finish();
+            startActivity(new Intent(getApplicationContext(), Register.class));
+        }
+        final FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Temp temp = dataSnapshot.getValue(Temp.class);
+                int temp1 = new Integer(temp.getTemp1());
+                int temp2 = new Integer(temp.getTemp2());
+                int temp3 = new Integer(temp.getTemp3());
+                int temp4 = new Integer(temp.getTemp4());
+                int temp5 = new Integer(temp.getTemp5());
+
+
+                LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+                        // on below line we are adding
+                        // each point on our x and y axis.
+                        new DataPoint(0, temp1),
+                        new DataPoint(1, temp2),
+                        new DataPoint(2, temp3),
+                        new DataPoint(3, temp4),
+                        new DataPoint(4, temp5),
+                });
+
+                // after adding data to our line graph series.
+                // on below line we are setting
+                // title for our graph view.
+                graphView.setTitle("Temperature Graph View");
+
+                // on below line we are setting
+                // text color to our graph view.
+                graphView.setTitleColor(R.color.purple_200);
+
+                // on below line we are setting
+                // our title text size.
+                graphView.setTitleTextSize(18);
+
                 // on below line we are adding
-                // each point on our x and y axis.
-                new DataPoint(0, 1),
-                new DataPoint(1, 3),
-                new DataPoint(2, 4),
-                new DataPoint(3, 9),
-                new DataPoint(4, 6),
+                // data series to our graph view.
+                graphView.addSeries(series);
+                StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graphView);
+                staticLabelsFormatter.setHorizontalLabels(new String[] {"0", "1", "2", "3", "4"});
+                staticLabelsFormatter.setVerticalLabels(new String[] {"29", "30", "31", "32", "33"});
+                graphView.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(Temperature.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
         });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // after adding data to our line graph series.
-        // on below line we are setting
-        // title for our graph view.
-        graphView.setTitle("Temperature Graph View");
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        // on below line we are setting
-        // text color to our graph view.
-        graphView.setTitleColor(R.color.purple_200);
+        // Perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        // on below line we are setting
-        // our title text size.
-        graphView.setTitleTextSize(18);
-
-        // on below line we are adding
-        // data series to our graph view.
-        graphView.addSeries(series);
-        StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graphView);
-        staticLabelsFormatter.setHorizontalLabels(new String[] {"5 days ago", " ", "3 days ago", " ", "today"});
-        staticLabelsFormatter.setVerticalLabels(new String[] {"28", "29", "30", "31", "32"});
-        graphView.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+                switch (item.getItemId()) {
+                    case R.id.nav_home:
+                        startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.nav_track:
+                        startActivity(new Intent(getApplicationContext(), TrackFragment.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.nav_person:
+                        startActivity(new Intent(getApplicationContext(), PersonFragment.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
 
     }
 

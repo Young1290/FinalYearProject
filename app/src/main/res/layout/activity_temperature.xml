@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Temperature">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-
-        app:itemTextColor="@color/black"
-        app:menu="@menu/bottom_navigation"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="668dp" />
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/idGraphView"
@@ -99,5 +89,17 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginTop="465dp"
+        app:itemTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.39"
+        app:menu="@menu/bottom_navigation"
+        tools:layout_editor_absoluteX="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
