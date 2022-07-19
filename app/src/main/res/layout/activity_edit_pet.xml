@@ -16,6 +16,7 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#FFFFFF"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
@@ -24,6 +25,7 @@
                 android:id="@+id/update_petimageView"
                 android:layout_width="match_parent"
                 android:layout_height="182dp"
+                android:background="#FFFFFF"
                 android:foreground="@drawable/rounded_fg"
                 android:gravity="center_vertical"
                 android:src="@drawable/ic_baseline_pets_24"
@@ -38,75 +40,75 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <Button
+        android:id="@+id/btnSavePetButton"
+        android:layout_width="298dp"
+        android:layout_height="59dp"
+        android:text="ok"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
+
+    <TextView
+        android:id="@+id/textViewPetProfile"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="200dp"
-        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center_horizontal"
+        android:text="Create Pet Profile"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.309" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <EditText
+        android:id="@+id/EditTextWeight"
+        android:layout_width="357dp"
+        android:layout_height="65dp"
+        android:ems="10"
+        android:hint="Weight"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.639" />
 
-            <TextView
-                android:id="@+id/textViewPetProfile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="create_profile"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+    <EditText
+        android:id="@+id/EditTextPetName"
+        android:layout_width="357dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:hint="Pet Name"
+        android:inputType="textPersonName|textCapSentences"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appbar"
+        app:layout_constraintVertical_bias="0.432" />
 
-            <TextView
-                android:id="@+id/TextViewPetName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="name" />
-
-            <EditText
-                android:id="@+id/EditTextPetName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="enter_pet_name"
-                android:inputType="textPersonName|textCapSentences" />
-
-            <TextView
-                android:id="@+id/TextViewAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="age" />
-
-            <EditText
-                android:id="@+id/EditTextAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="enter_pet_age"
-                android:inputType="textPersonName|textCapSentences" />
-
-            <TextView
-                android:id="@+id/TextViewWeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="weight" />
-
-            <EditText
-                android:id="@+id/EditTextWeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="enter_pet_weight"
-                android:inputType="number" />
-
-
-            <Button
-                android:id="@+id/btnSavePetButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="ok" />
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    <EditText
+        android:id="@+id/EditTextAge"
+        android:layout_width="356dp"
+        android:layout_height="69dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="textPersonName|textCapSentences"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.539" />
 </androidx.constraintlayout.widget.ConstraintLayout>

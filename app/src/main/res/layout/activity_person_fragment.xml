@@ -6,13 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".PersonFragment">
 
+    <TextView
+        android:id="@+id/btn_log_out"
+        android:layout_width="117dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#A74732"
+        android:backgroundTint="#956262"
+        android:clickable="true"
+        android:fontFamily="@font/baloo"
+        android:gravity="center"
+        android:onClick="navigateLogOut"
+        android:text="Log Out"
+        android:textColor="#F8F8F8"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="493dp" />
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="192dp">
+
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#FDFDFD"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
@@ -21,6 +40,7 @@
                 android:id="@+id/petprofile_pic_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="182dp"
+                android:background="#FFFCFC"
                 android:foreground="@drawable/rounded_fg"
                 android:gravity="center_vertical"
                 android:src="@drawable/defavatar"
@@ -53,10 +73,11 @@
                 android:id="@+id/textViewProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="cursive"
                 android:gravity="center_horizontal"
-                android:text="profile"
+                android:text="User Profile"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="35sp" />
+                android:textSize="48sp" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -79,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:text="name"
+                    android:text="Name"
                     android:textSize="25sp" />
 
                 <Button
@@ -115,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:text="surname"
+                    android:text="Surname"
                     android:textSize="25sp" />
 
                 <Button
@@ -151,7 +172,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:text="dies"
+                    android:text="Phone No"
                     android:textSize="25sp" />
 
                 <Button
@@ -187,22 +208,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:text="mail_address"
+                    android:text="E-Mail"
                     android:textSize="25sp" />
             </TableRow>
 
-            <TextView
-                android:id="@+id/btn_log_out"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:clickable="true"
-                android:gravity="center"
-                android:onClick="navigateLogOut"
-                android:text="log_out"
-                android:textSize="20sp" />
+            <!-- android:background="#805B5B" -->
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

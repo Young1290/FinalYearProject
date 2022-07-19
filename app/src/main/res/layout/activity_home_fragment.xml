@@ -10,9 +10,11 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="192dp">
+
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#FFFEFE"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
@@ -21,6 +23,7 @@
                 android:id="@+id/petprofile_pic_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="182dp"
+                android:background="#FFFFFF"
                 android:foreground="@drawable/rounded_fg"
                 android:gravity="center_vertical"
                 android:src="@drawable/ic_baseline_pets_24"
@@ -39,7 +42,7 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="216dp"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp">
@@ -53,10 +56,11 @@
                 android:id="@+id/ViewPet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="cursive"
                 android:gravity="center_horizontal"
-                android:text="Pet"
+                android:text="Pet Details"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="35sp" />
+                android:textSize="48sp" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -79,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:text="name"
+                    android:text="Pet's Name"
                     android:textSize="25sp" />
 
                 <Button
@@ -115,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:text="age"
+                    android:text="Age"
                     android:textSize="25sp" />
 
                 <Button
@@ -151,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:text="weight"
+                    android:text="Weight"
                     android:textSize="25sp" />
 
                 <Button
@@ -174,10 +178,11 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
+                android:fontFamily="monospace"
                 android:gravity="center"
                 android:onClick="navigateTemperature"
                 android:text="Temperature"
-                android:textSize="20sp" />
+                android:textSize="35sp" />
 
             <TextView
                 android:id="@+id/btn_bpm"
@@ -190,7 +195,7 @@
                 android:gravity="center"
                 android:onClick="navigateBPM"
                 android:text="BPM"
-                android:textSize="20sp" />
+                android:textSize="35sp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
