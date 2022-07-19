@@ -21,11 +21,5 @@ public class Track {
         return longitude;
     }
 
-//    public Integer getPetTemp() {
-//        return temp;
-//    }
-//    public Integer getPetBpm() {
-//        return bpm;
-//    }
 
 }

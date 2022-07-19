@@ -27,6 +27,7 @@ public class Temperature extends AppCompatActivity {
     private GraphView graphView;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
+    private double temp1, temp2, temp3, temp4, temp5;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,26 +43,25 @@ public class Temperature extends AppCompatActivity {
             finish();
             startActivity(new Intent(getApplicationContext(), Register.class));
         }
-        final FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Temp temp = dataSnapshot.getValue(Temp.class);
-                int temp1 = new Integer(temp.getTemp1());
-                int temp2 = new Integer(temp.getTemp2());
-                int temp3 = new Integer(temp.getTemp3());
-                int temp4 = new Integer(temp.getTemp4());
-                int temp5 = new Integer(temp.getTemp5());
 
+                Temp temp = dataSnapshot.getValue(Temp.class);
+                temp1 = Double.valueOf(temp.getTemp1());
+                temp2 = Double.valueOf(temp.getTemp2());
+                temp3 = Double.valueOf(temp.getTemp3());
+                temp4 = Double.valueOf(temp.getTemp4());
+                temp5 = Double.valueOf(temp.getTemp5());
 
                 LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
                         // on below line we are adding
-                        // each point on our x and y axis.
-                        new DataPoint(0, temp1),
-                        new DataPoint(1, temp2),
-                        new DataPoint(2, temp3),
-                        new DataPoint(3, temp4),
-                        new DataPoint(4, temp5),
+                        // each point on our x and y axis.d
+                        new DataPoint(1, 30),
+                        new DataPoint(2, 31),
+                        new DataPoint(3, 30.5),
+                        new DataPoint(4, 31),
+                        new DataPoint(5, 32),
                 });
 
                 // after adding data to our line graph series.
@@ -81,7 +81,7 @@ public class Temperature extends AppCompatActivity {
                 // data series to our graph view.
                 graphView.addSeries(series);
                 StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graphView);
-                staticLabelsFormatter.setHorizontalLabels(new String[] {"0", "1", "2", "3", "4"});
+                staticLabelsFormatter.setHorizontalLabels(new String[] {"0", "1", "2", "3", "4", "5","6"});
                 staticLabelsFormatter.setVerticalLabels(new String[] {"29", "30", "31", "32", "33"});
                 graphView.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 

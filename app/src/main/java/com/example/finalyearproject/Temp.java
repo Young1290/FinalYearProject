@@ -2,17 +2,17 @@ package com.example.finalyearproject;
 
 public class Temp {
 
-    public int temp1;
-    public int temp2;
-    public int temp3;
-    public int temp4;
-    public int temp5;
+    public Integer temp1;
+    public Integer temp2;
+    public Integer temp3;
+    public Integer temp4;
+    public Integer temp5;
 
 
     public Temp() {
     }
 
-    public Temp(int temp1, int temp2, int temp3, int temp4, int temp5) {
+    public Temp(Integer temp1, Integer temp2, Integer temp3, Integer temp4, Integer temp5) {
         this.temp1 = temp1;
         this.temp2 = temp2;
         this.temp3 = temp3;
@@ -20,21 +20,21 @@ public class Temp {
         this.temp5 = temp5;
     }
 
-    public int getTemp1() {
+    public Integer getTemp1() {
         return temp1;
     }
 
-    public int getTemp2() {
+    public Integer getTemp2() {
         return temp2;
     }
 
-    public int getTemp3() { return temp3; }
+    public Integer getTemp3() { return temp3; }
 
-    public int getTemp4() {
+    public Integer getTemp4() {
         return temp4;
     }
 
-    public int getTemp5() {
+    public Integer getTemp5() {
         return temp4;
     }
 }
