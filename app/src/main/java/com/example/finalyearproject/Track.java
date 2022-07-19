@@ -2,22 +2,22 @@ package com.example.finalyearproject;
 
 public class Track {
 
-    public Integer longitude;
-    public Integer latitude;
+    public String longitude;
+    public String latitude;
 
 
     public Track(){
     }
 
-    public Track(Integer latitude, Integer longitude){
+    public Track(String latitude, String longitude){
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public Integer getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
-    public Integer getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 

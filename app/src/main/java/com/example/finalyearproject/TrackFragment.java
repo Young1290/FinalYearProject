@@ -70,8 +70,8 @@ public class TrackFragment extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Track trackDetails = dataSnapshot.getValue(Track.class);
-                longitude.setText(trackDetails.getLongitude().toString());
-                latitude.setText(trackDetails.getLatitude().toString());
+                longitude.setText(trackDetails.getLongitude());
+                latitude.setText(trackDetails.getLatitude());
             }
 
             @Override

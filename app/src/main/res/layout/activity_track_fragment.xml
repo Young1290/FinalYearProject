@@ -65,8 +65,8 @@
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
-        android:layout_width="416dp"
-        android:layout_height="347dp"
+        android:layout_width="360dp"
+        android:layout_height="352dp"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,6 +94,7 @@
                 android:id="@+id/Latitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/latitude_1"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:text="Latitude"
@@ -104,6 +105,7 @@
                 android:id="@+id/Longtitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/longitude_1"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:text="Longitude"

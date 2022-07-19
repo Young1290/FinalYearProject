@@ -69,13 +69,13 @@
 
                 <ImageView
                     android:id="@+id/imageViewPetName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="1dp"
-                    app:srcCompat="@drawable/ic_baseline_cruelty_free_24" />
+                    app:srcCompat="@drawable/name_1" />
 
                 <TextView
                     android:id="@+id/profile_petname_textView"
@@ -105,13 +105,13 @@
 
                 <ImageView
                     android:id="@+id/imageViewAge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="1dp"
-                    app:srcCompat="@drawable/ic_baseline_cruelty_free_24" />
+                    app:srcCompat="@drawable/age" />
 
                 <TextView
                     android:id="@+id/profile_age_textView"
@@ -141,13 +141,13 @@
 
                 <ImageView
                     android:id="@+id/imageViewWeight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="1dp"
-                    app:srcCompat="@drawable/ic_baseline_cruelty_free_24" />
+                    app:srcCompat="@drawable/weight_1" />
 
                 <TextView
                     android:id="@+id/profile_weight_textView"
